@@ -1,3 +1,10 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';

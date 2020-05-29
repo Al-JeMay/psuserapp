@@ -1,3 +1,10 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React from 'react';
 import Spinner from './components/layout/Spinner';
 import DatatFetCher from './utils/DatFetcher';

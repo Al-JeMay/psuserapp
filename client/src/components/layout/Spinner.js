@@ -1,3 +1,10 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React from 'react';
 import spinner from './spinner.gif';
 

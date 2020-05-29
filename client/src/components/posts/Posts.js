@@ -1,3 +1,10 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React, {Component} from 'react';
 
 import {Consumer} from '../../context';
@@ -8,7 +15,6 @@ class Posts extends Component {
     return (
       <Consumer>
         {values => {
-          console.log ('value daa:::::', values);
           const {heading, posts} = values;
           return (
             <React.Fragment>

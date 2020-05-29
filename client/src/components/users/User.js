@@ -1,13 +1,21 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React from 'react';
 import {Link} from 'react-router-dom';
 import DatatFetCher, {isEmptyObj} from '../../utils/DatFetcher';
 import Spinner from '../../components/layout/Spinner';
 
 const User = props => {
+  // console.log ('props.match.params.id::::::', props.match.params.id);
+  // console.log ('props.location.post.id::::::', props.location.post.id);
   const {data: user, isLoading, error} = DatatFetCher (
     `https://jsonplaceholder.typicode.com/users/${props.match.params.id}`
   );
-
   if (error) {
     return (
       <div className="alert alert-danger alert-dismissible fade show">
@@ -38,38 +46,49 @@ const User = props => {
   if (user && isEmptyObj (user)) {
     return <p>user is EMPTY!</p>;
   }
-
-  const {id, name, username, email, address, phone, website, company} = user;
+  const {name, username, email, address, phone, website, company} = user;
   return (
     <React.Fragment>
       <Link to={`/`} className="btn btn-dark btn-sm mb-4">Go Back</Link>
       <div className="card">
         <h5 className="card-header">
-          {name} <span className="text-secondary">for post id:{id} </span>
+          {name}
+          {' '}
+          <br />
+          <small>User id number </small>
+          <small className="text-secondary">
+            {props.match.params.id}{' '}
+          </small>
+          <small> accessing data of post id number </small>
+          <small className="text-secondary">
+            {props.location.post.id}{' '}
+          </small>
         </h5>
         <div className="card-body">
           <p className="card-text">
-            <strong><i className="fa fa-id-badge" /></strong>
+            <strong><i className="fa fa-id-badge text-muted" /></strong>
             {' '}
             {username} <small className="text-muted">(username)</small>
           </p>
           <p className="card-text">
-            <strong><i className="fa fa-at" /></strong>
+            <strong><i className="fa fa-at text-muted" /></strong>
             {' '}
             {email}
             <small className="text-muted">(email)</small>
           </p>
           <p className="card-text">
-            <strong><i className="fa fa-mobile" /></strong>
+            <strong><i className="fa fa-mobile text-muted" /></strong>
             {' '}
             {phone}
             {' '}
             <small className="text-muted">(phone)</small>
           </p>
           <p className="card-text">
-            <strong><i className="fa fa-internet-explorer" /></strong>
+            <strong>
+              <i className="fa fa-internet-explorer text-muted" />
+            </strong>
             {' '}
-            {website}<small class="text-muted">(website)</small>
+            {website}<small className="text-muted">(website)</small>
           </p>
         </div>
       </div>
@@ -80,20 +99,20 @@ const User = props => {
           <br />
           {`${address.street}, ${address.suite}, ${address.city} ${address.zipcode}`}
           <br />
-          {`${address.geo.lat}, ${address.geo.lng}`}
+          <strong><i className="fa fa-compass text-muted" /></strong>
 
-          {/* {`${address.street}, ${address.suite}, ${address.city} ${address.zipcode}, ${address.geo.lat}, ${address.geo.lng}`${address.geo.lat}, ${address.geo.lng}`} */}
+          {` ${address.geo.lat}, ${address.geo.lng}`}
         </li>
         <li className="list-group-item">
-          <strong>company</strong>
+          <strong>Company</strong>
           :
           <br />
-          {company.name}
+          <strong><i className="fa fa-briefcase text-muted" /></strong>
+          {` ${company.name}`}
           <br />
           {company.catchPhrase}
           <br />
           {company.bs}
-          {/* {`${company.name}, ${company.catchPhrase}, ${company.bs}`} */}
         </li>
       </ul>
     </React.Fragment>

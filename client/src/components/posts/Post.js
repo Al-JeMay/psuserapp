@@ -1,3 +1,10 @@
+/*
+===========================================================
+ Title:  PolicyStreet User App Demo
+ Author: Al JeMay
+ Date:   29 May 2020
+===========================================================
+*/
 import React from 'react';
 import {Link} from 'react-router-dom';
 
@@ -17,7 +24,15 @@ const Post = ({post}) => {
           <p className="card-text">
             <strong><i className="fa fa-paper-plane" /> Post Id</strong>: {id}
           </p>
-          <Link to={`/users/${userId}`} className="btn btn-dark btn-block">
+          <Link
+            className="btn btn-dark btn-block"
+            to={{
+              pathname: `/users/${userId}`,
+              post: {
+                id,
+              },
+            }}
+          >
             <i className="fa fa-caret-right"> View User</i>
           </Link>
         </div>
